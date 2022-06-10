@@ -6,7 +6,9 @@ function ReusableForm(){
     <p>Reusable Form placeholder</p>
     <form>
       <input>
-        <p>input name placeholder</p>
+        <h1>UserName input placeholder</h1>
+        <h1>Subject input placeholder</h1>
+        <h1>Message box input placeholder</h1>
       </input>
     </form>
     </React.Fragment>
