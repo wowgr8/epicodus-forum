@@ -10,7 +10,6 @@ export default (state = {}, action) => {
           id: id,
         }
       });
-
     case 'DELETE_POST':
       let newState =  {...state};
       delete newState[id];
