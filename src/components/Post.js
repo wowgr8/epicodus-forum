@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Post(){
   return (
@@ -11,5 +12,12 @@ function Post(){
     </React.Fragment>
   )
 }
+
+Post.propTypes = {
+  username: PropTypes.string,
+  subject: PropTypes.string,
+  message: PropTypes.string,
+  id: PropTypes.string
+};
 
 export default Post;
