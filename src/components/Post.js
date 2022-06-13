@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Post(){
+const Post = (props) => {
+  // const {username, subject, message} = props;
   return (
     <React.Fragment>
-      <div>
-        <h1>UserName:</h1>
-        <h2>Subject:</h2>
-        <h3>Message Post:</h3>
+      <hr />
+      <div onClick = {() => props.whenPostClicked(props.id)}>
+        <h3>{props.subject} - {props.message}</h3>
+        <p><em>{props.issue}</em></p>
+        <hr/>
       </div>
     </React.Fragment>
   )
