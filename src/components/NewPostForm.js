@@ -1,17 +1,32 @@
 import React from "react";
-// import { v4 }/ uuid;
-// import ReusableForm;
+import { v4 } from "uuid";
+import ReusableForm from "./ReusableForm";
+import PropTypes from "prop-types";
 
-function NewPostForm(){
+const NewPostForm = (props) => {
+  const handleAddingNewPostToForum = (e) => {
+    e.preventDefault();
+    props.onNewPostCreation({
+      usernames: e.target.usernames.value,
+      subject: e.target.postTitle.value,
+      message: e.target.postBody.value,
+      id: v4(),
+    });
+  }
 
   return(
     <React.Fragment>
-      {/* <ReusableForm       */}
-        <h1> placeholder for submit button: POST!</h1>
-
-      {/* /> */}
+      <hr />
+      <ReusableForm 
+        formSubmissionHandler = {handleAddingNewPostToForum}
+        buttonText="Post"
+        />
     </React.Fragment>
   )
+};
+
+NewPostForm.propTypes = {
+  onNewPostCreation: PropTypes.func
 }
 
 export default NewPostForm;
