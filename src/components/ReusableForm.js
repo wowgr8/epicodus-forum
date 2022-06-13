@@ -1,17 +1,19 @@
 import React from "react";
 
-function ReusableForm(){
+const ReusableForm = (props) =>{
+  const {handleAddingNewPostToForum, buttonText } = props;
   return(
-    <React.Fragment>
-    <p>Reusable Form placeholder</p>
-    <form>
-      <input>
-        <h1>UserName input placeholder</h1>
-        <h1>Subject input placeholder</h1>
-        <h1>Message box input placeholder</h1>
-      </input>
+    <form onSubmit={handleAddingNewPostToForum}>
+      <div className="mb-3">
+        <label htmlFor="postTitle" className="form-label">Post Title</label>
+        <input type="test" className="form-control" id="postTitle" aria-describedby="post title" />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="postBody" className="form-label">Post Body</label>
+        <textarea className="form-control" id="postBody" rows="3" />
+      </div>
+      <button type="submit" className="btn btn-primary">{buttonText}</button>
     </form>
-    </React.Fragment>
   )
 }
 
