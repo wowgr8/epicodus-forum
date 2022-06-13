@@ -1,18 +1,21 @@
 import React from "react";
-//import ReusableForm from "./ReusableForm";
-//import PropTypes from "prop-types";
+import ReusableForm from "./ReusableForm";
+import PropTypes from 'prop-types';
 
-function EditPostForm () {
+const EditPostForm = (props) => {
+  const { handleEditPostFormSubmission } = props;
   
   return (
     <React.Fragment>
-
-      <h1> ReusablForm element tag placeholder</h1>
-      <p> eventhandler placeholder</p>
-      <p> button text placeholder </p>
-
+      <ReusableForm  
+        formSubmissionHandler={handleEditPostFormSubmission}
+        buttonText="Update Post" /> 
     </React.Fragment>
   );
 }
+
+EditPostForm.propTypes = {
+  onEditPost: PropTypes.func
+};
 
 export default EditPostForm;
