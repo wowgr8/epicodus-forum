@@ -4,6 +4,7 @@ function PostDetail(){
 
   return (
     <React.Fragment>
+      <hr />
       <h1>Post Detail</h1>
       <h3>UserName</h3>
       <p><em>Subject</em></p>
