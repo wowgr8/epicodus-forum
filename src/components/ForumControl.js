@@ -11,7 +11,7 @@ class ForumControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      formVisibleOnPage: false,
+      // formVisibleOnPage: false,
       selectedPost: null,
       editing: false
     };
@@ -43,7 +43,7 @@ class ForumControl extends React.Component {
   }
 
   handleChangingSelectedPost = (id) => {
-    const selectedPost = this.props.mainPostList[id];
+    const selectedPost = this.props.mainTicketList[id];
     this.setState({selectedPost: selectedPost});
   }
 
@@ -68,43 +68,54 @@ class ForumControl extends React.Component {
     }
   }
 
-
-
   // conditional will go here inside of render method:
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
+    console.log("ForumControl props list: " + this.props.mainPostList);
+
     if (this.state.editing) {
       currentlyVisibleState = <EditPostForm post = {this.state.selectedPost} onEditPost = {this.handleEditingPostInList} />
-      buttonText = "Return to Posts";
+      buttonText="Return to Posts";
   
     } else if (this.state.selectedPost != null){
         currentlyVisibleState = <PostDetail 
           post = {this.state.selectedPost} 
           onClickingDelete = {this.handleDeletingPost}
           onClickingEdit = {this.handleEditClick} />
-        buttonText= "Return to Posts";
+        buttonText="Return to Posts";
   
       } else if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList}/>;
-        buttonText = "Return to Posts";
+        currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToForum}/>;
+        buttonText="Return to Posts";
   
       } else {
-        currentlyVisibleState = <PostList postList={this.state.mainPostList} onPostSelection={this.handleChangingSelectedPost}/>;
-        buttonText = "Add Post";
+        currentlyVisibleState = <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost}/>;
+        buttonText="Add Post";
       };
 
       return (
         <React.Fragment>
           {currentlyVisibleState}
           <button className="btn btn-primary" onClick = {this.handleClick}>{buttonText}</button>
-          <button className="btn btn-secondary" onClick={this.handleClick}>{buttonText}</button>
         </React.Fragment>
       );
   }
 }
 
-ForumControl = connect()(ForumControl);
+ForumControl.propTypes = {
+  mainPostList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
+};
+
+const mapStateToProps = state => {
+  return {
+    mainPostList: state,
+    formVisibleOnPage: state
+  }
+}
+
+ForumControl = connect(mapStateToProps)(ForumControl);
 
 export default ForumControl;
