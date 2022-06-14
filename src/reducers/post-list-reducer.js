@@ -1,5 +1,5 @@
 export default (state = {}, action) => {
-  const { type, username, subject, message, id } = action;
+  const { username, subject, message, id } = action;
   switch (action.type) {
     case 'ADD_POST':
       return Object.assign({}, state, {
