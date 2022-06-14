@@ -43,7 +43,7 @@ class ForumControl extends React.Component {
   }
 
   handleChangingSelectedPost = (id) => {
-    const selectedPost = this.props.mainTicketList[id];
+    const selectedPost = this.props.mainPostList[id];
     this.setState({selectedPost: selectedPost});
   }
 
@@ -73,21 +73,19 @@ class ForumControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    console.log("ForumControl props list: " + this.props.mainPostList);
-
     if (this.state.editing) {
-      currentlyVisibleState = <EditPostForm post = {this.state.selectedPost} onEditPost = {this.handleEditingPostInList} />
+      currentlyVisibleState = <EditPostForm post={this.state.selectedPost} onEditPost={this.handleEditingPostInList} />
       buttonText="Return to Posts";
   
-    } else if (this.state.selectedPost != null){
-        currentlyVisibleState = <PostDetail 
-          post = {this.state.selectedPost} 
-          onClickingDelete = {this.handleDeletingPost}
-          onClickingEdit = {this.handleEditClick} />
+    } else if (this.state.selectedPost != null) {
+        currentlyVisibleState=<PostDetail 
+          post={this.state.selectedPost} 
+          onClickingDelete={this.handleDeletingPost}
+          onClickingEdit={this.handleEditClick} />
         buttonText="Return to Posts";
   
       } else if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToForum}/>;
+        currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToForum} />;
         buttonText="Return to Posts";
   
       } else {
