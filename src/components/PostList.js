@@ -3,9 +3,11 @@ import Post from "./Post";
 import PropTypes from "prop-types";
 
 const PostList = (props) => {
+  const {postList, onPostSelection } = props;
+  console.log(Object.keys(postList.mainPostList));
   return(
     <React.Fragment>
-    {Object.values(props.postList).map((post, index) =>
+    {Object.values(postList.mainPostList).map((post, index) =>
       <Post
         whenPostClicked={post.onPostSelection}
         username={post.username}
