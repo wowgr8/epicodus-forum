@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Post = (props) => {
-  // const {username, subject, message} = props;
   return (
     <React.Fragment>
       <hr />
