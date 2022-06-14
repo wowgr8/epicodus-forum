@@ -7,7 +7,7 @@ const NewPostForm = (props) => {
   const handleAddingNewPostToForum = (e) => {
     e.preventDefault();
     props.onNewPostCreation({
-      usernames: e.target.usernames.value,
+      username: e.target.username.value,
       subject: e.target.postTitle.value,
       message: e.target.postBody.value,
       id: v4(),
