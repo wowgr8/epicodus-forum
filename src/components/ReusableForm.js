@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const ReusableForm = (props) =>{
   const {handleAddingNewPostToForum, buttonText } = props;
+      console.log('clicked btn for handleAddingNewPostToForum');
   return(
     <form onSubmit={handleAddingNewPostToForum}>
       <div className="mb-3">

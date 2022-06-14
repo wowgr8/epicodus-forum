@@ -11,7 +11,7 @@ class ForumControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      // formVisibleOnPage: false,
+      formVisibleOnPage: false,
       selectedPost: null,
       editing: false
     };
@@ -47,7 +47,7 @@ class ForumControl extends React.Component {
     this.setState({selectedPost: selectedPost});
   }
 
-  handleEditingPostInList = (post) => {}
+  // handleEditingPostInList = (post) => {}
 
   handleEditClick = () => {
     console.log("handleEditClick reached!");
@@ -91,7 +91,7 @@ class ForumControl extends React.Component {
         buttonText="Return to Posts";
   
       } else {
-        currentlyVisibleState = <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost}/>;
+        currentlyVisibleState = <PostList postList={this.props.mainPostList} onPostSelection={this.handleChangingSelectedPost} />;
         buttonText="Add Post";
       };
 

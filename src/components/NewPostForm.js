@@ -18,7 +18,7 @@ const NewPostForm = (props) => {
     <React.Fragment>
       <hr />
       <ReusableForm 
-        formSubmissionHandler = {handleAddingNewPostToForum}
+        formSubmissionHandler={handleAddingNewPostToForum}
         buttonText="Post"
         />
     </React.Fragment>
