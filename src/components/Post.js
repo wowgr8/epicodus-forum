@@ -6,8 +6,8 @@ const Post = (props) => {
     <React.Fragment>
       <hr />
       <div onClick = {() => props.whenPostClicked(props.id)}>
-        <h3>{props.username} - {props.message}</h3>
-        <p><em>{props.subject}</em></p>
+        <h3>{props.username} - {props.subject}</h3>
+        <p><em>{props.message}</em></p>
         <hr/>
       </div>
     </React.Fragment>
