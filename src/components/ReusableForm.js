@@ -4,11 +4,10 @@ import PostList from "./PostList";
 
 const ReusableForm = (props) =>{
   const {formSubmissionHandler, buttonText } = props;
-  console.log('clicked btn for handleAddingNewPostToForum');
   return(
     <form onSubmit={formSubmissionHandler}>
       <div className="mb-3">
-        <label htmlFor="username" className="form-label">User</label>
+        <label htmlFor="username" className="form-label"><i class="bi bi-123"></i>User</label>
         <input type="test" className="form-control" id="username" aria-describedby="user name" />
       </div>
       <div className="mb-3">
